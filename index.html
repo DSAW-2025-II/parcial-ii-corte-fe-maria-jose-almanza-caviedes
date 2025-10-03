@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PokéApp - FE</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>PokéApp</h1>
+    <section class="auth">
+      <div class="auth-row">
+        <button id="btn-login">Login (admin)</button>
+        <button id="btn-logout" class="hidden">Logout</button>
+      </div>
+      <div id="auth-status" class="small muted">No autenticado</div>
+      <div id="token-info" class="small muted"></div>
+    </section>
+
+    <section class="search">
+      <h2>Buscar Pokémon</h2>
+      <div class="row">
+        <input id="pokemon-input" placeholder="Nombre del Pokémon (ej: pikachu)" />
+        <button id="btn-search">Buscar</button>
+      </div>
+      <div id="message" class="message"></div>
+      <div id="result" class="card hidden">
+        <img id="poke-img" src="" alt="" />
+        <div class="info">
+          <h3 id="poke-name"></h3>
+          <p><strong>Species:</strong> <span id="poke-species"></span></p>
+          <p><strong>Weight:</strong> <span id="poke-weight"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="note">
+      <p>Este frontend sólo habla con el backend. No debe comunicarse con PokeAPI directamente.</p>
+    </footer>
+  </main>
+
+  <script src="src/config.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
