@@ -1,4 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/PzXEPZ_E)
+# Marcardo del Parcial
+- Estudiante: María José Almanza Caviedes
+  Código Estudiantil: 0000337693
+- Despliegue en Vercel: https://parcial-ii-corte-fe-maria-jose-alma.vercel.app/
+
 # 📝 Enunciado del examen
 
 Vas a construir una **arquitectura de tres capas**:
