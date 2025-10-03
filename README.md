@@ -3,6 +3,7 @@
 - Estudiante: María José Almanza Caviedes
   Código Estudiantil: 0000337693
 - Despliegue en Vercel: https://parcial-ii-corte-fe-maria-jose-alma.vercel.app/
+- https://incandescent-stardust-308f5a.netlify.app/
 
 # 📝 Enunciado del examen
 
