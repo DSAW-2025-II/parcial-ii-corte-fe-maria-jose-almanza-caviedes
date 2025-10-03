@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
+    <!-- Debug banner: shows runtime API base and connectivity result -->
+    <div id="debug-banner" style="position:fixed;right:12px;top:12px;background:#222;color:#fff;padding:8px 12px;border-radius:6px;z-index:9999;font-family:Arial,Helvetica,sans-serif;font-size:13px;opacity:0.95">
+      <strong>API_BASE:</strong>
+      <span id="debug-api">(loading...)</span>
+      <br />
+      <span id="debug-status" style="color:#f0f0f0">checking…</span>
+    </div>
+
   <main class="container">
     <h1>PokéApp</h1>
     <section class="auth">
@@ -42,5 +50,56 @@
 
   <script src="src/config.js"></script>
   <script src="src/main.js"></script>
+
+  <!-- Runtime debug script (shows API base and a quick connectivity check) -->
+  <script>
+    (function () {
+      function setText(id, text) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = text;
+      }
+
+      var apiBase = (window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL) || 'not-set';
+      setText('debug-api', apiBase);
+
+      // Try a simple connectivity check (GET root or /api/v1/status if available)
+      var probeUrl = apiBase;
+      if (probeUrl && !/^https?:\/\//i.test(probeUrl)) {
+        probeUrl = window.location.origin;
+      }
+      // Prefer a safe API path if available
+      var testPaths = ['/api/v1/ping', '/api/v1', '/'];
+      function tryProbe(paths) {
+        if (!apiBase || apiBase === 'not-set') {
+          setText('debug-status', 'config missing — loading src/config.js failed');
+          return;
+        }
+        var next = paths.shift();
+        if (!next) {
+          setText('debug-status', 'no response — network or CORS error');
+          return;
+        }
+        var url = apiBase.replace(/\/$/, '') + next;
+        fetch(url, { method: 'GET', cache: 'no-store' })
+          .then(function (r) {
+            if (r.ok) {
+              setText('debug-status', 'reachable (status ' + r.status + ')');
+            } else {
+              setText('debug-status', 'reachable (status ' + r.status + ')');
+            }
+          })
+          .catch(function (err) {
+            // try next path — could be CORS or 404
+            if (paths.length) {
+              tryProbe(paths);
+            } else {
+              setText('debug-status', 'failed: ' + (err && err.message ? err.message : 'network/CORS'));
+            }
+          });
+      }
+
+      tryProbe(testPaths.slice());
+    })();
+  </script>
 </body>
 </html>
