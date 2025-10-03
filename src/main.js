@@ -34,7 +34,7 @@ function setAuthState(isAuthed){
 async function login(){
   selectors.message.textContent = '';
   try{
-    const res = await fetch(`${API_BASE}/api/v1/auth`, {
+  const res = await fetch(`${API_BASE}/auth`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email: 'admin@admin.com', password: 'admin'})
@@ -107,7 +107,7 @@ async function searchPokemon(){
   }
 
   try{
-    const res = await fetch(`${API_BASE}/api/v1/pokemonDetails`, {
+  const res = await fetch(`${API_BASE}/pokemonDetails`, {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
