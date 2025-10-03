@@ -1,0 +1,11 @@
+{
+  "name": "parcial-fe",
+  "version": "1.0.0",
+  "description": "Frontend static site for PokéApp",
+  "scripts": {
+    "start": "npx serve -s . -l 3001",
+    "start:python": "python -m http.server 3001"
+  },
+  "author": "",
+  "license": "MIT"
+}
