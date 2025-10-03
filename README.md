@@ -8,12 +8,6 @@ Despliegue en Vercel: https://backend-parcial.netlify.app/
 
 https://parcial-ii-corte-fe-maria-jose-almanza-caviedes-bq315li96.vercel.app/
 
-## Production
-
-- Frontend (public): https://parcial-ii-corte-fe-maria-jose-almanza-caviedes-8gwuw8dx8.vercel.app
-
-Note: The Vercel deployment was initially protected by Vercel's deployment protection (authentication). If the public site shows a message requiring authentication or prints a localhost API base, redeploying after pushing the latest commits or using the Vercel dashboard to disable protection will resolve it. Use Incognito or clear site data if the browser cache or service worker shows stale config.
-
 # 📝 Enunciado del examen
 
 Vas a construir una **arquitectura de tres capas**:
