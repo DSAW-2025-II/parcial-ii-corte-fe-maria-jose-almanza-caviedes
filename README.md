@@ -4,7 +4,8 @@ Nombre: Maria Jose Almanza Caviedes
 
 Código Estudiantil: 0000337693
 
-Despliegue en Vercel: https://backend-e8z05dapf-majos-projects-82a87faf.vercel.app/
+Despliegue en Vercel: https://backend-parcial.netlify.app/
+https://parcial-ii-corte-fe-maria-jose-almanza-caviedes-bq315li96.vercel.app/
 
 # 📝 Enunciado del examen
 
