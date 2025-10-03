@@ -51,8 +51,19 @@ async function login(){
         selectors.message.textContent = 'Respuesta inesperada del servidor.';
       }
     } else {
-      const err = await res.json().catch(()=>({}));
-      selectors.message.textContent = err.error || 'Login fallido';
+      // Try to show useful server response (JSON or plain text)
+      let errText = 'Login fallido';
+      try {
+        const errJson = await res.json();
+        errText = errJson.error || JSON.stringify(errJson);
+      } catch (_) {
+        try {
+          errText = await res.text();
+        } catch (_) {
+          errText = 'Login fallido (sin cuerpo de respuesta)';
+        }
+      }
+      selectors.message.textContent = `Error ${res.status}: ${errText}`;
       setAuthState(false);
     }
   } catch(e){
